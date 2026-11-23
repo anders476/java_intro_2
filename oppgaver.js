@@ -28,7 +28,7 @@ const temperaturer = [-4, -6, -2, 1, -8, -11, -3];
 function hilsen(navn) {
   console.log(`Hei, ${navn}!`)
 }
-hilsen("Andes")
+hilsen("Anders")
 
 
 // Oppgave 2: Hvor mange blokker trengs til gulvet i en hytte på 4 x 5 blokker?
@@ -44,8 +44,8 @@ console.log(rektangelAreal(4,5))
 //     Gjør om celsius til fahrenheit.  Formel: F = C * 9/5 + 32
 //     (Den motsatte formelen er C = (F - 32) * 5/9.)
 function celsiusTilFahrenheit(celsius) {
-  
-}
+  return temperaturer[0]*(9/5)+32;
+}console.log(temperaturer[0]*(9/5)+32);
 
 
 // ---------- GUL ----------
@@ -53,34 +53,67 @@ function celsiusTilFahrenheit(celsius) {
 // Oppgave 4: Værappen skal regne ut ukas gjennomsnitt. Første steg: summen.
 //     Returner summen av alle tallene i en array. Bruk en for-løkke.
 function sum(tall) {
-  // LØSNING
+  let tallsum = 0
+  for (let i = 0; i < tall.length; i++) {
+    tallsum = tallsum + tall[i];
+  }
+  return tallsum;
 }
+  console.log(sum(temperaturer));
 
 // Oppgave 5: Returner gjennomsnittet av tallene. Gjenbruk sum()!
 function gjennomsnitt(tall) {
   // LØSNING
+  return sum(tall)/tall.length
 }
+console.log(gjennomsnitt(temperaturer))
 
 // Oppgave 6: Hvor mange dager med kuldegrader var det? (Trenger du vinterdekk?)
 //     Returner HVOR MANGE tall som er under 0. Bruk for-løkke + if.
 function antallUnderNull(tall) {
-  // LØSNING
+  let minus_grader = 0;
+  for (let i = 0; i < tall.length; i++) {
+    if (tall[i] < 0) {
+      minus_grader = minus_grader + 1
+    }
+    else {
+      minus_grader = minus_grader
+    }
+  }
+  return minus_grader;
 }
-
+console.log(antallUnderNull(temperaturer));
 
 // ---------- RØD ----------
 
 // Oppgave 7: Hva var den varmeste dagen? Samme logikk som en highscore-liste.
 //     Returner det største tallet i arrayen – UTEN Math.max og UTEN .sort()
 function storste(tall) {
-  // LØSNING
+  let varmeste = 0 
+  for(let i = 0; i < tall.length; i++) {
+    if (varmeste < tall[i]) {
+      varmeste = tall[i]
+    } 
+    else{
+      varmeste = varmeste
+    }
+  }
+  return varmeste;
 }
+console.log(storste(temperaturer));
 
 // Oppgave 8: Returner en NY array med bare kuldegradene (tall under 0).
 //     Den opprinnelige arrayen skal ikke endres.
 function bareKuldegrader(tall) {
-  // LØSNING
+  const minustempraturer = []
+  for(let i = 0; i < tall.length; i++){
+    if ( tall[i] < 0 ){
+      (minustempraturer.push(tall[i]));
+    }
+  }
+  return minustempraturer;
 }
+console.log(bareKuldegrader(temperaturer));
 
 // Oppgave 9: Sorter tallene fra lavest til høyest – UTEN .sort().
 //     Lag din egen sorteringsalgoritme (f.eks. boblesortering).
