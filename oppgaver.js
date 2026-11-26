@@ -171,9 +171,13 @@ console.log(erGammelNok(17 , 18 ))
 //     billettpris(false) -> 150
 //     Tips: bruk if og else.
 function billettpris(erVG1) {
-  // LØSNING
+  if(erVG1){
+    return 100
+  } else {
+    return 150
+  }
 }
-
+console.log(billettpris(true));
 
 // ---------- GUL ----------
 
