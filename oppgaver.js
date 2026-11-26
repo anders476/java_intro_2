@@ -119,22 +119,24 @@ console.log(bareKuldegrader(temperaturer));
 // Oppgave 9: Sorter tallene fra lavest til høyest – UTEN .sort().
 //     Lag din egen sorteringsalgoritme (f.eks. boblesortering).
 //     Returner en NY array, ikke endre den opprinnelige.
-function sorterStigende(tall) {
-  let forrige = 0
-  const sortert = []
-  const temperaturer2 = temperaturer
-  tall=temperaturer
-  for(let i = 0; i < tall.length; i++) {
-    if(tall[i] > forrige){
-      forrige = tall[i]
+
+function sorterstigende(tall){
+  let flyttet = false;
+  for (let i = 0; i< sortTemp.length; i++){
+    flyttet = false;
+    for(let j = 0; j< sortTemp.length - i - 1; j++){
+      if (tall[j]> tall[j+1]){
+        [tall[j], tall[j+1]] = [tall[j+1], tall[j]]
+        flyttet=true ;
+      }
     }
-    else{}
-    let[cutitem] = temperaturer2.splice(i,1);
-    sortert.push(cutitem);
+    if (flyttet === false) break;
   }
-  return sortert;
+  return tall;
 }
 
+let sortTemp = temperaturer;
+console.log(sorterstigende(sortTemp, sortTemp.length));
 
 // #####################################################
 // DEL 2: SPILL (oppgave 10–14)
@@ -143,24 +145,25 @@ function sorterStigende(tall) {
 // Data: poeng per runde i en turnering
 const runder = [120, 85, 140, 95, 110];
 
-
 // ---------- GRØNN ----------
 
 // Oppgave 10: Du lager en ny bruker i WoW Forever, og vi ønsker årstallet spilleren er født
 // skal inkluderes i brukernavnet. Vi får da: Gamertag = navn + tall.
 //     lagGamertag("Ola", 99) -> "Ola99"
 function lagGamertag(navn, tall) {
-  // LØSNING
+  let gamertag = navn + tall;
+return gamertag;
 }
-
+console.log(lagGamertag("Anders" , 17))
 
 // Oppgave 11: Er spilleren gammel nok til spillet? Returner true eller false.
 //     erGammelNok(16, 18) -> false
 //     erGammelNok(18, 18) -> true
 //     Tips: return alder >= grense;  (sammenligningen gir true/false)
 function erGammelNok(alder, grense) {
-  // LØSNING
+  return alder >= grense;
 }
+console.log(erGammelNok(17 , 18 ))
 
 // Oppgave 12: BreiLAN innfører billettpriser. VG1 betaler 100 kr og resten av skolen 150 kr.
 //     Lag en funksjon som sjekker om eleven går på VG1 og gir riktig pris.
