@@ -302,30 +302,29 @@ console.log(totalInntekt(deltakere))
 //     UTEN .sort(). Arrayen resultater skal ikke endres.
 //     toppTre(resultater) -> ["Kari", "Jonas", "Ali"]
 function toppTre(resultater) {
-  let poeng_array = []
-  for (let i = 0; i < resultater.length; i++){
+  let poeng_array = [];
+  for (let i = 0; i < resultater.length; i++) {
     poeng_array.push(resultater[i].poeng);
   }
-  sorterstigende(poeng_array)
-  let baklengs_sortert_poeng = sorterstigende(poeng_array)
-  let sortert_poeng = []
-  for (let i = 0; i < baklengs_sortert_poeng.length; i++){
-    console.log()
-    sortert_poeng.push(baklengs_sortert_poeng[baklengs_sortert_poeng.length - i - 1])
-    console.log(sortert_poeng)
+  let sortert = sorterstigende(poeng_array);
+  let toppTreNavn = [];
+  for (let i = 0; i < 3; i++) {
+    let hoyestePoeng = sortert[sortert.length - 1 - i];
+    for (let j = 0; j < resultater.length; j++) {
+      if (resultater[j].poeng === hoyestePoeng) {
+        toppTreNavn.push(resultater[j].navn);
+      }
+    }
   }
-  if ()
+  return toppTreNavn;
 }
-console.log(toppTre(resultater))
-
-
-
+console.log(toppTre(resultater));
 
 // #####################################################
 // EGENVURDERING
 // #####################################################
 //
 // Skriv en kort egenvurdering av arbeidet ditt. Skriv rett etter kolonet.
-// Dette fikk jeg godt til:
-// Dette var vanskelig:
-// Dette vil jeg øve mer på:
+// Dette fikk jeg godt til: Føler at jeg har lært mye mer en sist, i generelt så tror jeg at jeg er mer erfaren med hvordan å forstå koden pågrunn av repitisjon.
+// Dette var vanskelig: Det som var vanskeligst var oppsette av koden. Jeg skjønner hva jeg vil men vet ikke hvordan å utføre det.
+// Dette vil jeg øve mer på: Tror egenlig at alt det som jeg trenger er tid for å repitere. 
