@@ -192,14 +192,33 @@ console.log(billettpris(true));
 //
 //     Tips: andel = antall i valgt fraksjon / totalt * 100
 function velgFraksjon(alliance, horde, valg) {
-  // LØSNING
+  let valgtAntall;
+  let totalt = horde + alliance
+  if (valg === "Horde") {
+    valgtAntall = horde;
+    console.log("du valgte horde")
+}else{
+    valgtAntall = alliance;
+    console.log("du valgte alliance")
+  }
+  let andel = valgtAntall / totalt * 100;
+  if (andel > 50) {
+    return "The faction is currently unavailable on this ruleset due to population imbalance";
+  } else {
+    return `Welcome to the ${valg}!`;
+  }
 }
+console.log(velgFraksjon(5000, 5000, "Horde"));
+console.log(velgFraksjon(4500, 5500, "Alliance"));
+console.log(velgFraksjon(4500, 5500, "Horde"));
+
 
 // Oppgave 14: Hvor mange runder fikk laget MER enn grensen?
 //     antallOver(runder, 100) -> 3
 //     Tips: samme oppskrift som antallUnderNull() i oppgave 6.
 function antallOver(poeng, grense) {
-  // LØSNING
+  if (poeng[i] > grense) {
+  }
 }
 
 
