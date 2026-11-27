@@ -217,8 +217,13 @@ console.log(velgFraksjon(4500, 5500, "Horde"));
 //     antallOver(runder, 100) -> 3
 //     Tips: samme oppskrift som antallUnderNull() i oppgave 6.
 function antallOver(poeng, grense) {
-  if (poeng[i] > grense) {
+  let antall = 0;
+  for (let i = 0; i < poeng.length; i++) {
+    if (poeng[i] > grense) {
+    antall = antall + 1;
   }
+  }
+  return antall;
 }
 
 
@@ -270,7 +275,7 @@ const resultater = [
 //     kanDelta(16, "GTA 6")    -> false
 //     kanDelta(16, "Fortnite") -> true
 function kanDelta(alder, spill) {
-  // LØSNING
+  return erGammelNok(alder, aldersgrenser[spill]);
 }
 
 
@@ -280,10 +285,16 @@ function kanDelta(alder, spill) {
 //     Gjenbruk billettpris() fra oppgave 12! deltakere[i].vg1 er true eller false.
 //     totalInntekt(deltakere) -> 700
 function totalInntekt(deltakere) {
-  // LØSNING
+  let _total_inntekt = 0;
+  for (let i = 0; i < deltakere.length; i++){
+    _total_inntekt += billettpris(deltakere[i].vg1);
+  }
+  return _total_inntekt;
 }
+console.log(totalInntekt(deltakere))
 
 
+//     billettpris(false) -> 150
 // ---------- RØD ----------
 
 // Oppgave 17: BreiLAN trenger en resultattavle med de tre beste.
@@ -291,9 +302,21 @@ function totalInntekt(deltakere) {
 //     UTEN .sort(). Arrayen resultater skal ikke endres.
 //     toppTre(resultater) -> ["Kari", "Jonas", "Ali"]
 function toppTre(resultater) {
-  // LØSNING
+  let poeng_array = []
+  for (let i = 0; i < resultater.length; i++){
+    poeng_array.push(resultater[i].poeng);
+  }
+  sorterstigende(poeng_array)
+  let baklengs_sortert_poeng = sorterstigende(poeng_array)
+  let sortert_poeng = []
+  for (let i = 0; i < baklengs_sortert_poeng.length; i++){
+    console.log()
+    sortert_poeng.push(baklengs_sortert_poeng[baklengs_sortert_poeng.length - i - 1])
+    console.log(sortert_poeng)
+  }
+  if ()
 }
-
+console.log(toppTre(resultater))
 
 
 
